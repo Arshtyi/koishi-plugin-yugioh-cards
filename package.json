@@ -1,7 +1,7 @@
 {
     "name": "koishi-plugin-yugioh-cards",
     "description": "游戏王卡片查询插件 - 支持卡名查询、随机抽卡，可通过ygocdb.com查询",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
     "files": [
