@@ -4,4 +4,4 @@ tsconfig.tsbuildinfo
 /node_modules
 *.tgz
 package-lock.json
-/copy_ygo_files.sh
+copy_from_terminus.sh
