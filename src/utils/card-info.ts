@@ -102,12 +102,18 @@ export function formatCardInfo(cardInfo: CardInfo | null): string {
             result += `种族: ${cardInfo.race}\n`;
         }
         if (isXyz && cardInfo.level) {
-            result += `阶级: ${cardInfo.level}\n`;
+            result += `阶级: ${
+                cardInfo.level === -1 ? "不确定" : cardInfo.level
+            }\n`;
         } else if (!isLink && cardInfo.level) {
-            result += `等级: ${cardInfo.level}\n`;
+            result += `等级: ${
+                cardInfo.level === -1 ? "不确定" : cardInfo.level
+            }\n`;
         }
         if (isPendulum && cardInfo.scale !== undefined) {
-            result += `灵摆刻度: ${cardInfo.scale}\n`;
+            result += `灵摆刻度: ${
+                cardInfo.scale === -1 ? "不确定" : cardInfo.scale
+            }\n`;
         }
         if (isLink) {
             if (cardInfo.linkVal) {
@@ -120,10 +126,10 @@ export function formatCardInfo(cardInfo: CardInfo | null): string {
             }
         }
         if (cardInfo.atk !== undefined) {
-            result += `攻击力: ${cardInfo.atk}\n`;
+            result += `攻击力: ${cardInfo.atk === -1 ? "?" : cardInfo.atk}\n`;
         }
         if (!isLink && cardInfo.def !== undefined) {
-            result += `守备力: ${cardInfo.def}\n`;
+            result += `守备力: ${cardInfo.def === -1 ? "?" : cardInfo.def}\n`;
         }
     }
     if (cardInfo.description) {

@@ -257,6 +257,7 @@ async function getCardDetails(jsonFilePath: string): Promise<{
                     count: data.length,
                 };
             } else if (typeof data === "object" && data !== null) {
+                // 对象格式，例如 {"10000": {...}, "10001": {...}}
                 const keys = Object.keys(data);
                 return {
                     count: keys.length,

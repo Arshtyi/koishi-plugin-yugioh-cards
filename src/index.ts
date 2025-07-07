@@ -4,6 +4,7 @@ import { randomPicture } from "./random/random";
 import { queryCards, createCardMessage } from "./query/query";
 import { formatResponse, success, failure } from "./utils/response";
 import { usage } from "./usage";
+
 export const name = "ygo";
 export { usage };
 export interface Config {}
@@ -37,18 +38,21 @@ export function apply(ctx: Context) {
             }
         });
 
-    cmd.subcommand(".query <cardIds:text>", "根据ID查询卡牌")
+    cmd.subcommand(".query <cardName:text>", "根据卡名查询卡牌")
         .alias("查卡")
+        .example("ygo.query 青眼白龙 - 查询青眼白龙")
+        .example("查卡 青眼白龙 - 使用别名查询青眼白龙")
         .example("ygo.query 10000040 - 查询ID为10000040的卡牌")
-        .example("查卡 10000040 - 使用别名查询卡牌")
-        .example("ygo.query 10000040 10000080 - 查询多张卡牌")
-        .action(async ({ session }, cardIds) => {
-            if (!cardIds) {
-                return formatResponse(failure("查询卡牌失败", "请提供卡片ID"));
+        .example("ygo.query 青眼白龙 黑魔术师 - 查询多张卡牌")
+        .action(async ({ session }, cardName) => {
+            if (!cardName) {
+                return formatResponse(
+                    failure("查询卡牌失败", "请提供卡片名称")
+                );
             }
             try {
-                const idList = cardIds.split(/\s+/);
-                const results = await queryCards(idList);
+                const nameList = cardName.split(/\s+/);
+                const results = await queryCards(nameList);
                 if (results.length === 1) {
                     return formatResponse(
                         success("卡牌查询", createCardMessage(results[0]))

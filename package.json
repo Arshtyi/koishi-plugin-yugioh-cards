@@ -1,7 +1,7 @@
 {
     "name": "koishi-plugin-yugioh-cards",
-    "description": "YuGiOh卡牌相关功能",
-    "version": "1.0.1",
+    "description": "游戏王卡片查询插件 - 支持卡名查询、随机抽卡，可通过ygocdb.com查询",
+    "version": "1.0.2",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
     "files": [
@@ -28,7 +28,8 @@
         "plugin",
         "yugioh",
         "ygo",
-        "card"
+        "card",
+        "query"
     ],
     "koishi": {
         "service": {
@@ -38,8 +39,8 @@
         },
         "browser": true,
         "description": {
-            "en": "YuGiOh Card Search",
-            "zh-CN": "游戏王卡片查询"
+            "en": "YuGiOh Card Search by Name or ID",
+            "zh-CN": "游戏王卡片查询 - 支持卡名查询、随机抽卡"
         }
     },
     "devDependencies": {
