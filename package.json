@@ -1,0 +1,62 @@
+{
+    "name": "koishi-plugin-yugioh-cards",
+    "description": "游戏王卡片查询插件 - 支持查询卡牌、随机一卡",
+    "version": "1.0.0",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "files": [
+        "lib",
+        "dist"
+    ],
+    "contributors": [
+        "Arshtyi <arshtyi@foxmail.com>"
+    ],
+    "homepage": "https://github.com/Arshtyi/koishi-plugin-yugioh-cards",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Arshtyi/koishi-plugin-yugioh-cards.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc -b && koishi-console build",
+        "compile": "tsc -b && koishi-console build && npm pack",
+        "pub": "npm publish"
+    },
+    "keywords": [
+        "chatbot",
+        "koishi",
+        "plugin",
+        "yugioh",
+        "ygo",
+        "card",
+        "query"
+    ],
+    "koishi": {
+        "service": {
+            "required": [
+                "http"
+            ]
+        },
+        "browser": true,
+        "description": {
+            "en": "YuGiOh Card Search by Name or ID",
+            "zh-CN": "游戏王卡片查询 - 支持查询卡牌、随机一卡"
+        }
+    },
+    "devDependencies": {
+        "@koishijs/client": "^5.28.0",
+        "@koishijs/components": "^1.5.19",
+        "@types/fs-extra": "^11.0.4",
+        "@types/node": "^20.11.0",
+        "sass": "^1.72.0",
+        "typescript": "^5.3.3",
+        "vue": "^3.4.21"
+    },
+    "peerDependencies": {
+        "koishi": "^4.18.7"
+    },
+    "dependencies": {
+        "fs-extra": "^11.2.0",
+        "axios": "^1.6.7"
+    }
+}
